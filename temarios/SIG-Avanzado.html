@@ -5,72 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Curso SIG Nivel Avanzado con QGIS</title>
 
-  <!-- CSS global -->
+  <!-- Estilos institucionales Cencoatl -->
   <link rel="stylesheet" href="../styles.css">
 
-  <style>
-    /* =====================================
-       Protección de contenido (anticopia)
-    ====================================== */
-    body {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-      position: relative;
-      z-index: 1;
-      font-family: "Segoe UI", sans-serif;
-    }
-
-    * {
-      -webkit-touch-callout: none;
-      -webkit-user-select: none;
-      -khtml-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
-    .content-protection {
-      position: relative;
-    }
-
-    .content-protection::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .protected-text::after {
-      content: "\200B\200C\200D";
-      font-size: 0;
-    }
-
-    /* =====================================
-       Marca de agua (ruta pública GitHub)
-    ====================================== */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('https://albertocat.github.io/Temarios/imagenes/cencoatl.png');
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 45%;
-      opacity: 0.06;
-      z-index: -1;
-      pointer-events: none;
-    }
-  </style>
-
+  <!-- Protección de contenido -->
   <script>
     // Bloquear clic derecho
     document.addEventListener('contextmenu', e => e.preventDefault());
@@ -96,7 +34,6 @@
 </head>
 
 <body>
-
   <main class="content-protection">
     <h1>Curso SIG Nivel Avanzado con QGIS</h1>
     <p><strong>Duración:</strong> 10 horas</p>
@@ -123,13 +60,8 @@
       <li>Corrección atmosférica y radiométrica</li>
       <li>Clasificación supervisada y no supervisada</li>
     </ul>
-    <p><strong>Práctica:</strong> Análisis de cobertura vegetal</p>
-    <em>Caso real: Evaluación de procesos de degradación de vegetación</em>
-    <ul>
-      <li>Corrección atmosférica de imágenes Landsat 8</li>
-      <li>Cálculo de índices espectrales</li>
-      <li>Clasificación supervisada</li>
-    </ul>
+    <p><strong>Práctica 1:</strong> Análisis de cobertura vegetal</p>
+    <p><em>Caso real:</em> Evaluación de procesos de degradación de vegetación</p>
     <hr>
 
     <h3>SESIÓN 2: Análisis de Redes y Movimiento</h3>
@@ -137,35 +69,32 @@
       <li>Análisis de conectividad del paisaje</li>
       <li>Modelado de movimiento animal</li>
     </ul>
-    <p><strong>Práctica:</strong> Rutas migratorias de aves</p>
-    <em>Caso real: Procesos de migración de especies</em>
-    <ul>
-      <li>Creación de red de conectividad migratoria</li>
-    </ul>
+    <p><strong>Práctica 2:</strong> Rutas migratorias de aves</p>
+    <p><em>Caso real:</em> Procesos de migración de especies</p>
     <hr>
 
     <h3>SESIÓN 3: Análisis Multitemporal y Detección de Cambios</h3>
     <ul>
-      <li>Detección de cambios en cobertura</li>
+      <li>Detección de cambios de cobertura</li>
       <li>Índices espectrales (NDVI, EVI, SAVI)</li>
       <li>Validación de cambios detectados</li>
     </ul>
-    <p><strong>Práctica:</strong> Evaluación de procesos de degradación de vegetación</p>
-    <p><strong>Datos:</strong> Imágenes Landsat 1990–2018</p>
+    <p><strong>Práctica 3:</strong> Evaluación de procesos de degradación de vegetación</p>
+    <p><strong>Datos:</strong> Imágenes Landsat multitemporales (1990–2018)</p>
     <ul>
       <li>Cálculo de NDVI</li>
-      <li>Detección de pérdida forestal</li>
-      <li>Tasas de deforestación por municipio</li>
+      <li>Detección de pérdida de cobertura forestal</li>
+      <li>Cuantificación de tasas de deforestación por municipio</li>
     </ul>
     <hr>
 
     <h3>SESIÓN 4: Álgebra de Mapas</h3>
     <ul>
-      <li>Evaluación multicriterio de cultivos agrícolas</li>
+      <li>Evaluación multicriterio para cultivos agrícolas mediante álgebra de mapas</li>
       <li>Procesamiento de datos geoespaciales agroambientales</li>
-      <li>Obtención de mapa de idoneidad</li>
+      <li>Obtención de mapa con zonas idóneas de cultivo</li>
     </ul>
-    <p><strong>Práctica:</strong> Evaluación de zonas idóneas para cultivo</p>
+    <p><strong>Práctica 4:</strong> Evaluación de zonas idóneas para cultivo</p>
     <hr>
 
     <h3>SESIÓN 5: Análisis Hidrológico y Cuencas</h3>
@@ -175,9 +104,9 @@
       <li>Modelado hidrológico: escorrentía y erosión</li>
       <li>Índices morfométricos</li>
     </ul>
-    <p><strong>Práctica:</strong> Gestión integral de una cuenca</p>
+    <p><strong>Práctica 5:</strong> Gestión integral de una cuenca</p>
     <ul>
-      <li>Delimitar subcuencas</li>
+      <li>Delimitar subcuencas automáticamente</li>
       <li>Modelar escorrentía superficial</li>
       <li>Identificar zonas de riesgo de inundación</li>
       <li>Proponer medidas de manejo integral</li>
