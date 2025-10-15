@@ -143,19 +143,19 @@ a:hover {
 /* ---------------------------
    Footer (ajuste Quarto)
 -----------------------------*/
+.footer-protegido,
 main.content .footer-protegido,
 #quarto-content .footer-protegido {
-  display: block;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center !important;
-  margin-top: 40px;
+  width: 100%;
+  margin: 40px auto;
   padding: 20px;
   background-color: #f3f3f3;
+  border: 1px solid #ddd;
   border-radius: 8px;
   font-weight: bold;
   color: #333;
-  border: 1px solid #ddd;
-  justify-content: center;
-  align-items: center;
 }
-
