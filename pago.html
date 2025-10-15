@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos de Pago - Cencoatl</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .header h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .payment-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .payment-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .payment-card h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .payment-icon {
+            font-size: 2em;
+        }
+        
+        .account-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .info-row:last-child {
+            border-bottom: none;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .info-value {
+            color: #333;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+        }
+        
+        .btn-copy {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-copy:hover {
+            background: #5568d3;
+            transform: scale(1.05);
+        }
+        
+        .qr-container {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .qr-placeholder {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            background: white;
+            border: 2px dashed #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9em;
+        }
+        
+        .instructions {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        
+        .instructions h3 {
+            color: #1976d2;
+            margin-bottom: 15px;
+        }
+        
+        .instructions ol {
+            margin-left: 20px;
+            color: #1976d2;
+        }
+        
+        .instructions li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .contact-info h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info p {
+            color: #666;
+            margin: 10px 0;
+        }
+        
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .btn-back {
+            display: inline-block;
+            background: #f0f0f0;
+            color: #333;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-back:hover {
+            background: #e0e0e0;
+        }
+        
+        .alert-success {
+            background: #4caf50;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+            margin-top: 10px;
+        }
+        
+        .payment-link {
+            display: block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .payment-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💳 Métodos de Pago</h1>
+            <p>Seleccione su método de pago preferido</p>
+        </div>
+        
+        <div class="payment-methods">
+            <!-- Transferencia Bancaria -->
+            <div class="payment-card">
+                <h2>
+                    <span class="payment-icon">🏦</span>
+                    Transferencia Bancaria
+                </h2>
+                
+                <div class="account-info">
+                    <div class="info-row">
+                        <span class="info-label">Banco:</span>
+                        <span class="info-value">BBVA Bancomer</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Cuenta:</span>
+                        <span class="info-value" id="cuenta">0123456789</span>
+                        <button class="btn-copy" onclick="copiarTexto('cuenta')">Copiar</button>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">CLABE:</span>
+                        <span class="info-value" id="clabe">012345678901234567</span>
+                        <button class="btn-copy" onclick="copiarTexto('clabe')">Copiar</button>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Titular:</span>
+                        <span class="info-value">Cencoatl Capacitación</span>
+                    </div>
+                </div>
+                
+                <div class="instructions">
+                    <h3>📋 Instrucciones:</h3>
+                    <ol>
+                        <li>Realice la transferencia al número de cuenta indicado</li>
+                        <li>Envíe el comprobante de pago por WhatsApp o correo</li>
+                        <li>Incluya su nombre completo y curso(s) seleccionado(s)</li>
+                        <li>Recibirá confirmación en 24 horas</li>
+                    </ol>
+                </div>
+                
+                <div class="alert-success" id="alert-cuenta"></div>
+            </div>
+            
+            <!-- Pago en Línea / Enlace de Pago -->
+            <div class="payment-card">
+                <h2>
+                    <span class="payment-icon">💳</span>
+                    Pago en Línea
+                </h2>
+                
+                <div class="qr-container">
+                    <div class="qr-placeholder">
+                        Código QR
+                        <br>
+                        (Próximamente)
+                    </div>
+                    <p style="margin-top: 15px; color: #666;">
+                        Escanea el código para pagar con tarjeta
+                    </p>
+                </div>
+                
+                <a href="https://paypal.me/cencoatl" class="payment-link" target="_blank">
+                    🔗 Pagar con PayPal / Tarjeta
+                </a>
+                
+                <a href="https://mercadopago.com.mx/checkout/v1/redirect?pref_id=TU_PREFERENCE_ID" class="payment-link" target="_blank">
+                    🔗 Pagar con Mercado Pago
+                </a>
+                
+                <div class="instructions">
+                    <h3>📋 Instrucciones:</h3>
+                    <ol>
+                        <li>Haga clic en el enlace de pago de su preferencia</li>
+                        <li>Complete el pago con tarjeta de crédito/débito</li>
+                        <li>Recibirá confirmación automática por correo</li>
+                        <li>Su inscripción quedará registrada al instante</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Información de contacto -->
+        <div class="contact-info">
+            <h3>📞 ¿Necesitas ayuda?</h3>
+            <p>Envíanos tu comprobante de pago por:</p>
+            <p>
+                <strong>WhatsApp:</strong> 
+                <a href="https://wa.me/525571909396" target="_blank">55-71-90-93-96</a>
+            </p>
+            <p>
+                <strong>Email:</strong> 
+                <a href="mailto:cencoatl.capacitacion@gmail.com">cencoatl.capacitacion@gmail.com</a>
+            </p>
+            <p style="margin-top: 20px; color: #999; font-size: 0.9em;">
+                Horario de atención: Lunes a Viernes, 9:00 - 18:00 hrs
+            </p>
+            
+            <a href="index.html" class="btn-back">← Regresar al inicio</a>
+        </div>
+    </div>
+    
+    <script>
+        function copiarTexto(elementId) {
+            const texto = document.getElementById(elementId).textContent;
+            
+            // Copiar al portapapeles
+            navigator.clipboard.writeText(texto).then(() => {
+                // Mostrar mensaje de éxito
+                const alert = document.getElementById('alert-' + elementId);
+                if (!alert) {
+                    const newAlert = document.createElement('div');
+                    newAlert.className = 'alert-success';
+                    newAlert.id = 'alert-' + elementId;
+                    newAlert.textContent = '✓ Copiado al portapapeles';
+                    document.getElementById(elementId).parentElement.parentElement.appendChild(newAlert);
+                }
+                
+                const alertElement = document.getElementById('alert-' + elementId);
+                alertElement.style.display = 'block';
+                
+                setTimeout(() => {
+                    alertElement.style.display = 'none';
+                }, 2000);
+            }).catch(err => {
+                alert('Error al copiar: ' + err);
+            });
+        }
+    </script>
+</body>
+</html>
