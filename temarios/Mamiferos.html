@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Biopython: una introducción al análisis de secuencias biológicas</title>
+<title>Tecnicas de monitoreo y análisis de datos de mamíferos</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,17 +23,17 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="Biopython_files/libs/clipboard/clipboard.min.js"></script>
-<script src="Biopython_files/libs/quarto-html/quarto.js" type="module"></script>
-<script src="Biopython_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="Biopython_files/libs/quarto-html/popper.min.js"></script>
-<script src="Biopython_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="Biopython_files/libs/quarto-html/anchor.min.js"></script>
-<link href="Biopython_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Biopython_files/libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="Biopython_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="Biopython_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="Biopython_files/libs/bootstrap/bootstrap-813c323200a87c37e262811031999de4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="Mamiferos_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Mamiferos_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="Mamiferos_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="Mamiferos_files/libs/quarto-html/popper.min.js"></script>
+<script src="Mamiferos_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Mamiferos_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Mamiferos_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Mamiferos_files/libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Mamiferos_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Mamiferos_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Mamiferos_files/libs/bootstrap/bootstrap-813c323200a87c37e262811031999de4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <style>
 /* Desactivar selección de texto */
 body {
@@ -141,7 +141,7 @@ document.addEventListener('copy', function(e) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Biopython: una introducción al análisis de secuencias biológicas</h1>
+<h1 class="title">Tecnicas de monitoreo y análisis de datos de mamíferos</h1>
 </div>
 
 
@@ -158,8 +158,8 @@ document.addEventListener('copy', function(e) {
 </header>
 
 
-<p><strong>6 horas</strong></p>
 <div class="content-protection">
+<p><strong>Duración: 10 horas</strong></p>
 <section id="certificaciones-red-sep-conocer" class="level2">
 <h2 class="anchored" data-anchor-id="certificaciones-red-sep-conocer"><strong>Certificaciones RED SEP CONOCER</strong></h2>
 <ul>
@@ -171,48 +171,80 @@ document.addEventListener('copy', function(e) {
 <strong>Teléfono:</strong> 55-71-90-93-96</p>
 <hr>
 </section>
-<section id="objetivo-general" class="level2">
-<h2 class="anchored" data-anchor-id="objetivo-general"><strong>OBJETIVO GENERAL</strong></h2>
-<p>Aprender a utilizar <strong>Python</strong> y <strong>Biopython</strong> para leer, manipular y analizar <strong>secuencias biológicas</strong> reales: calcular composición, <strong>transcribir</strong>, <strong>traducir</strong> y <strong>comparar</strong> genes entre especies mediante alineamientos.</p>
+<section id="objetivo-general-contentreferenceoaicite0" class="level2">
+<h2 class="anchored" data-anchor-id="objetivo-general-contentreferenceoaicite0"><strong>OBJETIVO GENERAL</strong> :contentReference<span data-index="0">oaicite:0</span></h2>
+<p>Desarrollar competencias avanzadas en las principales técnicas para el <strong>monitoreo de mamíferos</strong> y el <strong>manejo de datos de campo</strong> provenientes de cámaras trampa y anotaciones, con el fin de realizar un <strong>análisis de datos</strong> robusto y eficiente.</p>
 <hr>
-<section id="clase-1-introducción-y-lectura-de-secuencias" class="level3">
-<h3 class="anchored" data-anchor-id="clase-1-introducción-y-lectura-de-secuencias"><strong>Clase 1: Introducción y lectura de secuencias</strong></h3>
+<section id="clase-1-conceptos-básicos-de-los-mamíferos" class="level3">
+<h3 class="anchored" data-anchor-id="clase-1-conceptos-básicos-de-los-mamíferos"><strong>Clase 1: Conceptos básicos de los mamíferos</strong></h3>
 <ul>
-<li>Tipos de secuencias: <strong>ADN, ARN y proteína</strong><br>
+<li>Indicadores biológicos<br>
 </li>
-<li>Formatos <strong>FASTA</strong> y <strong>GenBank</strong><br>
+<li>Inventario y monitoreo<br>
 </li>
-<li>Instalación y primer uso de <strong>Biopython</strong> (sugerido: <strong>Google Colab</strong>)<br>
+<li>Biodiversidad de mamíferos de México<br>
 </li>
-<li>Lectura, exploración de longitud y <strong>contenido GC%</strong></li>
+<li>Aspectos básicos de la biología de mamíferos</li>
 </ul>
 <hr>
 </section>
-<section id="clase-2-procesamiento-y-traducción" class="level3">
-<h3 class="anchored" data-anchor-id="clase-2-procesamiento-y-traducción"><strong>Clase 2: Procesamiento y traducción</strong></h3>
+<section id="clase-2-técnicas-de-monitoreo" class="level3">
+<h3 class="anchored" data-anchor-id="clase-2-técnicas-de-monitoreo"><strong>Clase 2: Técnicas de monitoreo</strong></h3>
 <ul>
-<li><strong>Transcripción</strong> ADN → ARN<br>
+<li>Registro directo<br>
 </li>
-<li><strong>Traducción</strong> a proteína (tabla de codones)<br>
+<li>Registros indirectos<br>
 </li>
-<li>Identificación de <strong>codones</strong> de inicio/paro<br>
+<li>Registro por transectos<br>
 </li>
-<li>Búsqueda de <strong>motivos</strong> con expresiones regulares<br>
+<li>Detección acústica<br>
 </li>
-<li>Guardar/cargar secuencias en <strong>FASTA</strong></li>
+<li>Trampeo con redes de niebla<br>
+</li>
+<li>Trampeo con fototrampas</li>
 </ul>
 <hr>
 </section>
-<section id="clase-3-comparación-y-similitud" class="level3">
-<h3 class="anchored" data-anchor-id="clase-3-comparación-y-similitud"><strong>Clase 3: Comparación y similitud</strong></h3>
+<section id="clase-3-instalación-y-uso-de-timelapse-2" class="level3">
+<h3 class="anchored" data-anchor-id="clase-3-instalación-y-uso-de-timelapse-2"><strong>Clase 3: Instalación y uso de Timelapse 2</strong></h3>
 <ul>
-<li>Fundamentos de <strong>alineamiento</strong> (global y local)<br>
+<li>Descarga del software <strong>Timelapse</strong><br>
 </li>
-<li>Alineamientos con <code>pairwise2</code> y <strong>porcentaje de identidad</strong><br>
+<li>Exploración del software<br>
 </li>
-<li>Identificación de <strong>SNPs</strong> y diferencias<br>
+<li>Importación de fotos de cámaras trampa<br>
 </li>
-<li>Gráficas simples de composición o coincidencias</li>
+<li>Reconocimiento de especies<br>
+</li>
+<li>Exportación de bases de datos</li>
+</ul>
+<hr>
+</section>
+<section id="clase-4-análisis-de-datos" class="level3">
+<h3 class="anchored" data-anchor-id="clase-4-análisis-de-datos"><strong>Clase 4: Análisis de datos</strong></h3>
+<ul>
+<li>Descarga e instalación de <strong>R</strong> y <strong>RStudio</strong><br>
+</li>
+<li>Configuración básica<br>
+</li>
+<li>Cálculo de <strong>índices de diversidad</strong><br>
+</li>
+<li><strong>Curvas de acumulación</strong> de especies<br>
+</li>
+<li><strong>Patrones de actividad</strong><br>
+</li>
+<li><strong>Gráficos</strong> básicos</li>
+</ul>
+<hr>
+</section>
+<section id="clase-5-propuesta-de-conservación-de-mamíferos" class="level3">
+<h3 class="anchored" data-anchor-id="clase-5-propuesta-de-conservación-de-mamíferos"><strong>Clase 5: Propuesta de conservación de mamíferos</strong></h3>
+<ul>
+<li>Normativa<br>
+</li>
+<li>Actores clave en la conservación<br>
+</li>
+<li>Propiedad social y hábitat</li>
 </ul>
 <hr>
 </section>
@@ -220,28 +252,32 @@ document.addEventListener('copy', function(e) {
 <section id="dirigido-a" class="level2">
 <h2 class="anchored" data-anchor-id="dirigido-a"><strong>Dirigido a</strong></h2>
 <ul>
-<li>Estudiantes y profesionales de <strong>Biología</strong>, <strong>Genética</strong>, <strong>Biotecnología</strong><br>
+<li>Biólogos y ecólogos<br>
 </li>
-<li>Ecología/Evolución, Ciencias de la Salud y áreas afines<br>
+<li>Ingenieros ambientales<br>
 </li>
-<li>Personas que deseen <strong>iniciar</strong> en bioinformática aplicada</li>
+<li>Técnicos en conservación<br>
+</li>
+<li>Estudiantes de posgrado en ciencias biológicas<br>
+</li>
+<li>Profesionales del sector ambiental</li>
 </ul>
 <hr>
 </section>
 <section id="equipo-necesario" class="level2">
 <h2 class="anchored" data-anchor-id="equipo-necesario"><strong>Equipo necesario</strong></h2>
 <ol type="1">
-<li>Conexión estable a internet (recomendado <strong>Google Colab</strong>)<br>
+<li>Computadora con <strong>Windows 10 u 11</strong> (para instalar <strong>Timelapse</strong>)<br>
 </li>
-<li>Navegador actualizado (Chrome/Firefox)<br>
+<li>Memoria <strong>RAM</strong> de <strong>8 GB</strong><br>
 </li>
-<li>Opcional: Python 3.10+ y Jupyter instalados localmente</li>
+<li>Conexión a internet estable</li>
 </ol>
 </section>
 </div>
 <hr>
 <div style="text-align: center; margin-top: 40px; padding: 20px; background-color: #f0f0f0; border-radius: 5px;">
-<p><strong>Documento Protegido</strong> - Prohibida su reproducción total o parcial</p>
+<p><strong>Documento Protegido</strong> — Prohibida su reproducción total o parcial</p>
 </div>
 
 </main>

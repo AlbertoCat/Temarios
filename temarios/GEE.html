@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Biopython: una introducción al análisis de secuencias biológicas</title>
+<title>Monitoreo ambiental con Google Earth Engine</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,17 +23,17 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="Biopython_files/libs/clipboard/clipboard.min.js"></script>
-<script src="Biopython_files/libs/quarto-html/quarto.js" type="module"></script>
-<script src="Biopython_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="Biopython_files/libs/quarto-html/popper.min.js"></script>
-<script src="Biopython_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="Biopython_files/libs/quarto-html/anchor.min.js"></script>
-<link href="Biopython_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Biopython_files/libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="Biopython_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="Biopython_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="Biopython_files/libs/bootstrap/bootstrap-813c323200a87c37e262811031999de4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="GEE_files/libs/clipboard/clipboard.min.js"></script>
+<script src="GEE_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="GEE_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="GEE_files/libs/quarto-html/popper.min.js"></script>
+<script src="GEE_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="GEE_files/libs/quarto-html/anchor.min.js"></script>
+<link href="GEE_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="GEE_files/libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="GEE_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="GEE_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="GEE_files/libs/bootstrap/bootstrap-813c323200a87c37e262811031999de4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <style>
 /* Desactivar selección de texto */
 body {
@@ -141,7 +141,7 @@ document.addEventListener('copy', function(e) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Biopython: una introducción al análisis de secuencias biológicas</h1>
+<h1 class="title">Monitoreo ambiental con Google Earth Engine</h1>
 </div>
 
 
@@ -158,8 +158,8 @@ document.addEventListener('copy', function(e) {
 </header>
 
 
-<p><strong>6 horas</strong></p>
 <div class="content-protection">
+<p><strong>Duración: 10 horas</strong></p>
 <section id="certificaciones-red-sep-conocer" class="level2">
 <h2 class="anchored" data-anchor-id="certificaciones-red-sep-conocer"><strong>Certificaciones RED SEP CONOCER</strong></h2>
 <ul>
@@ -170,78 +170,101 @@ document.addEventListener('copy', function(e) {
 <p><strong>Contacto:</strong> cencoatl.capacitacion@gmail.com<br>
 <strong>Teléfono:</strong> 55-71-90-93-96</p>
 <hr>
-</section>
-<section id="objetivo-general" class="level2">
-<h2 class="anchored" data-anchor-id="objetivo-general"><strong>OBJETIVO GENERAL</strong></h2>
-<p>Aprender a utilizar <strong>Python</strong> y <strong>Biopython</strong> para leer, manipular y analizar <strong>secuencias biológicas</strong> reales: calcular composición, <strong>transcribir</strong>, <strong>traducir</strong> y <strong>comparar</strong> genes entre especies mediante alineamientos.</p>
-<hr>
-<section id="clase-1-introducción-y-lectura-de-secuencias" class="level3">
-<h3 class="anchored" data-anchor-id="clase-1-introducción-y-lectura-de-secuencias"><strong>Clase 1: Introducción y lectura de secuencias</strong></h3>
-<ul>
-<li>Tipos de secuencias: <strong>ADN, ARN y proteína</strong><br>
-</li>
-<li>Formatos <strong>FASTA</strong> y <strong>GenBank</strong><br>
-</li>
-<li>Instalación y primer uso de <strong>Biopython</strong> (sugerido: <strong>Google Colab</strong>)<br>
-</li>
-<li>Lectura, exploración de longitud y <strong>contenido GC%</strong></li>
-</ul>
+<section id="objetivo-general" class="level3">
+<h3 class="anchored" data-anchor-id="objetivo-general"><strong>Objetivo general</strong></h3>
+<p>Capacitar a profesionales en ciencias ambientales en el uso práctico de Google Earth Engine (GEE) para el análisis y monitoreo de variables ambientales mediante datos satelitales y <em>scripts</em> en Python. Al finalizar, los participantes podrán crear proyectos, importar y visualizar datos geoespaciales, realizar análisis temporales, calcular índices ambientales y generar mapas listos para reportes o publicaciones.</p>
 <hr>
 </section>
-<section id="clase-2-procesamiento-y-traducción" class="level3">
-<h3 class="anchored" data-anchor-id="clase-2-procesamiento-y-traducción"><strong>Clase 2: Procesamiento y traducción</strong></h3>
+</section>
+<section id="programa-temático" class="level2">
+<h2 class="anchored" data-anchor-id="programa-temático"><strong>Programa temático</strong></h2>
+<section id="sesión-1-introducción-a-google-earth-engine-y-configuración-del-entorno" class="level3">
+<h3 class="anchored" data-anchor-id="sesión-1-introducción-a-google-earth-engine-y-configuración-del-entorno"><strong>Sesión 1: Introducción a Google Earth Engine y configuración del entorno</strong></h3>
 <ul>
-<li><strong>Transcripción</strong> ADN → ARN<br>
+<li>Creación de cuenta y activación de proyectos en la consola.<br>
 </li>
-<li><strong>Traducción</strong> a proteína (tabla de codones)<br>
+<li>Exploración del Code Editor y sus componentes.<br>
 </li>
-<li>Identificación de <strong>codones</strong> de inicio/paro<br>
+<li>Concepto de colecciones, geometrías y funciones.<br>
 </li>
-<li>Búsqueda de <strong>motivos</strong> con expresiones regulares<br>
-</li>
-<li>Guardar/cargar secuencias en <strong>FASTA</strong></li>
+<li>Carga de <em>shapefiles</em> y <em>raster</em> desde Google Drive o <em>assets</em>.</li>
 </ul>
+<p><strong>Ejercicio práctico:</strong> Visualización de un área de interés (AOI) y composición RGB de imágenes Sentinel-2.</p>
 <hr>
 </section>
-<section id="clase-3-comparación-y-similitud" class="level3">
-<h3 class="anchored" data-anchor-id="clase-3-comparación-y-similitud"><strong>Clase 3: Comparación y similitud</strong></h3>
+<section id="sesión-2-procesamiento-de-imágenes-satelitales" class="level3">
+<h3 class="anchored" data-anchor-id="sesión-2-procesamiento-de-imágenes-satelitales"><strong>Sesión 2: Procesamiento de imágenes satelitales</strong></h3>
 <ul>
-<li>Fundamentos de <strong>alineamiento</strong> (global y local)<br>
+<li>Filtrado espacial y temporal de imágenes.<br>
 </li>
-<li>Alineamientos con <code>pairwise2</code> y <strong>porcentaje de identidad</strong><br>
+<li>Detección y enmascarado de nubes.<br>
 </li>
-<li>Identificación de <strong>SNPs</strong> y diferencias<br>
+<li>Creación de mosaicos anuales libres de nubes.<br>
 </li>
-<li>Gráficas simples de composición o coincidencias</li>
+<li>Cálculo de NDVI y umbrales de vegetación.</li>
 </ul>
+<p><strong>Ejercicio práctico:</strong> Mapeo de deforestación y degradación vegetal en una región específica.</p>
+<hr>
+</section>
+<section id="sesión-3-estimación-de-carbono-y-biomasa-a-partir-de-índices-de-vegetación" class="level3">
+<h3 class="anchored" data-anchor-id="sesión-3-estimación-de-carbono-y-biomasa-a-partir-de-índices-de-vegetación"><strong>Sesión 3: Estimación de carbono y biomasa a partir de índices de vegetación</strong></h3>
+<ul>
+<li>Relación entre NDVI, EVI y biomasa.<br>
+</li>
+<li>Uso de datos MODIS y Sentinel-2 para estimaciones regionales.<br>
+</li>
+<li>Aplicación de ecuaciones de biomasa (AGB) y factores de conversión a carbono.<br>
+</li>
+<li>Generación de mapas de biomasa y carbono.</li>
+</ul>
+<p><strong>Ejercicio práctico:</strong> Estimación de biomasa aérea en bosques tropicales o zonas restauradas mediante NDVI y EVI.</p>
+<hr>
+</section>
+<section id="sesión-4-monitoreo-de-áreas-agrícolas-y-restauradas-ndwi-y-productividad" class="level3">
+<h3 class="anchored" data-anchor-id="sesión-4-monitoreo-de-áreas-agrícolas-y-restauradas-ndwi-y-productividad"><strong>Sesión 4: Monitoreo de áreas agrícolas y restauradas — NDWI y productividad</strong></h3>
+<ul>
+<li>Detección de áreas cultivadas con índices de vegetación y agua.<br>
+</li>
+<li>Uso del NDWI (<em>Normalized Difference Water Index</em>).<br>
+</li>
+<li>Análisis de productividad agrícola mediante series temporales.<br>
+</li>
+<li>Función <code>map()</code> y reducción por fecha.</li>
+</ul>
+<p><strong>Ejercicio práctico:</strong> Monitoreo de variaciones de humedad y vigor en áreas agrícolas o restauradas.</p>
+<hr>
+</section>
+<section id="sesión-5-exportación-integración-y-presentación-de-resultados" class="level3">
+<h3 class="anchored" data-anchor-id="sesión-5-exportación-integración-y-presentación-de-resultados"><strong>Sesión 5: Exportación, integración y presentación de resultados</strong></h3>
+<ul>
+<li>Exportación de resultados a Google Drive (GeoTIFF, CSV, PNG).<br>
+</li>
+<li>Integración con QGIS o ArcGIS.<br>
+</li>
+<li>Creación de mapas temáticos y reportes finales.</li>
+</ul>
+<p><strong>Ejercicio práctico:</strong> Generación y exportación de un mapa de cambios de cobertura vegetal con leyenda y metadatos.</p>
 <hr>
 </section>
 </section>
 <section id="dirigido-a" class="level2">
 <h2 class="anchored" data-anchor-id="dirigido-a"><strong>Dirigido a</strong></h2>
 <ul>
-<li>Estudiantes y profesionales de <strong>Biología</strong>, <strong>Genética</strong>, <strong>Biotecnología</strong><br>
+<li>Biólogos y ecólogos<br>
 </li>
-<li>Ecología/Evolución, Ciencias de la Salud y áreas afines<br>
+<li>Ingenieros ambientales<br>
 </li>
-<li>Personas que deseen <strong>iniciar</strong> en bioinformática aplicada</li>
+<li>Técnicos en conservación<br>
+</li>
+<li>Estudiantes de posgrado en ciencias biológicas<br>
+</li>
+<li>Profesionales del sector ambiental</li>
 </ul>
-<hr>
-</section>
-<section id="equipo-necesario" class="level2">
-<h2 class="anchored" data-anchor-id="equipo-necesario"><strong>Equipo necesario</strong></h2>
-<ol type="1">
-<li>Conexión estable a internet (recomendado <strong>Google Colab</strong>)<br>
-</li>
-<li>Navegador actualizado (Chrome/Firefox)<br>
-</li>
-<li>Opcional: Python 3.10+ y Jupyter instalados localmente</li>
-</ol>
 </section>
 </div>
 <hr>
 <div style="text-align: center; margin-top: 40px; padding: 20px; background-color: #f0f0f0; border-radius: 5px;">
-<p><strong>Documento Protegido</strong> - Prohibida su reproducción total o parcial</p>
+<p><strong>Documento Protegido</strong> — Prohibida su reproducción total o parcial</p>
 </div>
 
 </main>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Biopython: una introducción al análisis de secuencias biológicas</title>
+<title>Introducción a R para las ciencias biológicas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,17 +23,17 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="Biopython_files/libs/clipboard/clipboard.min.js"></script>
-<script src="Biopython_files/libs/quarto-html/quarto.js" type="module"></script>
-<script src="Biopython_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="Biopython_files/libs/quarto-html/popper.min.js"></script>
-<script src="Biopython_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="Biopython_files/libs/quarto-html/anchor.min.js"></script>
-<link href="Biopython_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Biopython_files/libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="Biopython_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="Biopython_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="Biopython_files/libs/bootstrap/bootstrap-813c323200a87c37e262811031999de4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="Rbio_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Rbio_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="Rbio_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="Rbio_files/libs/quarto-html/popper.min.js"></script>
+<script src="Rbio_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Rbio_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Rbio_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Rbio_files/libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Rbio_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Rbio_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Rbio_files/libs/bootstrap/bootstrap-813c323200a87c37e262811031999de4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <style>
 /* Desactivar selección de texto */
 body {
@@ -141,7 +141,7 @@ document.addEventListener('copy', function(e) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Biopython: una introducción al análisis de secuencias biológicas</h1>
+<h1 class="title">Introducción a R para las ciencias biológicas</h1>
 </div>
 
 
@@ -158,8 +158,8 @@ document.addEventListener('copy', function(e) {
 </header>
 
 
-<p><strong>6 horas</strong></p>
 <div class="content-protection">
+<p><strong>Duración: 10 horas</strong></p>
 <section id="certificaciones-red-sep-conocer" class="level2">
 <h2 class="anchored" data-anchor-id="certificaciones-red-sep-conocer"><strong>Certificaciones RED SEP CONOCER</strong></h2>
 <ul>
@@ -170,78 +170,87 @@ document.addEventListener('copy', function(e) {
 <p><strong>Contacto:</strong> cencoatl.capacitacion@gmail.com<br>
 <strong>Teléfono:</strong> 55-71-90-93-96</p>
 <hr>
-</section>
-<section id="objetivo-general" class="level2">
-<h2 class="anchored" data-anchor-id="objetivo-general"><strong>OBJETIVO GENERAL</strong></h2>
-<p>Aprender a utilizar <strong>Python</strong> y <strong>Biopython</strong> para leer, manipular y analizar <strong>secuencias biológicas</strong> reales: calcular composición, <strong>transcribir</strong>, <strong>traducir</strong> y <strong>comparar</strong> genes entre especies mediante alineamientos.</p>
-<hr>
-<section id="clase-1-introducción-y-lectura-de-secuencias" class="level3">
-<h3 class="anchored" data-anchor-id="clase-1-introducción-y-lectura-de-secuencias"><strong>Clase 1: Introducción y lectura de secuencias</strong></h3>
+<section id="módulo-1-fundamentos-de-r" class="level3">
+<h3 class="anchored" data-anchor-id="módulo-1-fundamentos-de-r"><strong>Módulo 1: Fundamentos de R</strong></h3>
 <ul>
-<li>Tipos de secuencias: <strong>ADN, ARN y proteína</strong><br>
+<li>Instalación de R y RStudio<br>
 </li>
-<li>Formatos <strong>FASTA</strong> y <strong>GenBank</strong><br>
+<li>Interfaz y navegación básica<br>
 </li>
-<li>Instalación y primer uso de <strong>Biopython</strong> (sugerido: <strong>Google Colab</strong>)<br>
+<li>Objetos en R: vectores, matrices, <em>data frames</em>, listas<br>
 </li>
-<li>Lectura, exploración de longitud y <strong>contenido GC%</strong></li>
+<li>Operadores aritméticos y lógicos<br>
+</li>
+<li>Tipos de datos y estructuras<br>
+</li>
+<li><strong>Ejercicio práctico:</strong> Análisis básico de datos de crecimiento de plantas</li>
 </ul>
 <hr>
 </section>
-<section id="clase-2-procesamiento-y-traducción" class="level3">
-<h3 class="anchored" data-anchor-id="clase-2-procesamiento-y-traducción"><strong>Clase 2: Procesamiento y traducción</strong></h3>
+<section id="módulo-2-manipulación-de-datos" class="level3">
+<h3 class="anchored" data-anchor-id="módulo-2-manipulación-de-datos"><strong>Módulo 2: Manipulación de datos</strong></h3>
 <ul>
-<li><strong>Transcripción</strong> ADN → ARN<br>
+<li>Importación de datos (CSV, Excel, bases de datos)<br>
 </li>
-<li><strong>Traducción</strong> a proteína (tabla de codones)<br>
+<li>Exploración inicial: <code>head()</code>, <code>str()</code>, <code>summary()</code><br>
 </li>
-<li>Identificación de <strong>codones</strong> de inicio/paro<br>
+<li>Filtrado de datos<br>
 </li>
-<li>Búsqueda de <strong>motivos</strong> con expresiones regulares<br>
+<li>Introducción a <strong>dplyr</strong>: <code>select()</code>, <code>filter()</code>, <code>mutate()</code>, <code>arrange()</code><br>
 </li>
-<li>Guardar/cargar secuencias en <strong>FASTA</strong></li>
+<li>Manejo de valores perdidos (<em>NA</em>)<br>
+</li>
+<li><strong>Ejercicio práctico:</strong> Limpieza de <em>dataset</em> de biodiversidad</li>
 </ul>
 <hr>
 </section>
-<section id="clase-3-comparación-y-similitud" class="level3">
-<h3 class="anchored" data-anchor-id="clase-3-comparación-y-similitud"><strong>Clase 3: Comparación y similitud</strong></h3>
+<section id="módulo-3-visualización-de-datos" class="level3">
+<h3 class="anchored" data-anchor-id="módulo-3-visualización-de-datos"><strong>Módulo 3: Visualización de datos</strong></h3>
 <ul>
-<li>Fundamentos de <strong>alineamiento</strong> (global y local)<br>
+<li>Gráficos básicos: <code>plot()</code>, <code>hist()</code>, <code>boxplot()</code><br>
 </li>
-<li>Alineamientos con <code>pairwise2</code> y <strong>porcentaje de identidad</strong><br>
+<li>Introducción a <strong>ggplot2</strong><br>
 </li>
-<li>Identificación de <strong>SNPs</strong> y diferencias<br>
+<li>Geometrías fundamentales: <code>geom_point()</code>, <code>geom_line()</code>, <code>geom_bar()</code><br>
 </li>
-<li>Gráficas simples de composición o coincidencias</li>
+<li>Personalización: colores, etiquetas, temas<br>
+</li>
+<li><strong>Ejercicio práctico:</strong> Visualización de patrones de distribución de especies</li>
 </ul>
 <hr>
 </section>
-</section>
-<section id="dirigido-a" class="level2">
-<h2 class="anchored" data-anchor-id="dirigido-a"><strong>Dirigido a</strong></h2>
+<section id="módulo-4-data-frames" class="level3">
+<h3 class="anchored" data-anchor-id="módulo-4-data-frames"><strong>Módulo 4: <em>Data frames</em></strong></h3>
 <ul>
-<li>Estudiantes y profesionales de <strong>Biología</strong>, <strong>Genética</strong>, <strong>Biotecnología</strong><br>
+<li>Creación de un <em>data frame</em><br>
 </li>
-<li>Ecología/Evolución, Ciencias de la Salud y áreas afines<br>
+<li>Conversión de datos a <em>data frame</em><br>
 </li>
-<li>Personas que deseen <strong>iniciar</strong> en bioinformática aplicada</li>
+<li>Acceso a datos de un <em>data frame</em><br>
+</li>
+<li>Modificación de un <em>data frame</em></li>
 </ul>
+<p><strong>Ejercicio práctico</strong></p>
 <hr>
 </section>
-<section id="equipo-necesario" class="level2">
-<h2 class="anchored" data-anchor-id="equipo-necesario"><strong>Equipo necesario</strong></h2>
-<ol type="1">
-<li>Conexión estable a internet (recomendado <strong>Google Colab</strong>)<br>
+<section id="módulo-5-funciones" class="level3">
+<h3 class="anchored" data-anchor-id="módulo-5-funciones"><strong>Módulo 5: Funciones</strong></h3>
+<ul>
+<li>Definición y llamada de funciones<br>
 </li>
-<li>Navegador actualizado (Chrome/Firefox)<br>
+<li>Parámetros y argumentos de una función<br>
 </li>
-<li>Opcional: Python 3.10+ y Jupyter instalados localmente</li>
-</ol>
+<li>Retorno de una función<br>
+</li>
+<li>Componentes de una función</li>
+</ul>
+<p><strong>Ejercicio práctico</strong></p>
+</section>
 </section>
 </div>
 <hr>
 <div style="text-align: center; margin-top: 40px; padding: 20px; background-color: #f0f0f0; border-radius: 5px;">
-<p><strong>Documento Protegido</strong> - Prohibida su reproducción total o parcial</p>
+<p><strong>Documento Protegido</strong> — Prohibida su reproducción total o parcial</p>
 </div>
 
 </main>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Biopython: una introducción al análisis de secuencias biológicas</title>
+<title>R para las ciencias biológicas - nivel intermedio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,17 +23,17 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="Biopython_files/libs/clipboard/clipboard.min.js"></script>
-<script src="Biopython_files/libs/quarto-html/quarto.js" type="module"></script>
-<script src="Biopython_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="Biopython_files/libs/quarto-html/popper.min.js"></script>
-<script src="Biopython_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="Biopython_files/libs/quarto-html/anchor.min.js"></script>
-<link href="Biopython_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Biopython_files/libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="Biopython_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="Biopython_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="Biopython_files/libs/bootstrap/bootstrap-813c323200a87c37e262811031999de4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="RINTER_files/libs/clipboard/clipboard.min.js"></script>
+<script src="RINTER_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="RINTER_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="RINTER_files/libs/quarto-html/popper.min.js"></script>
+<script src="RINTER_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="RINTER_files/libs/quarto-html/anchor.min.js"></script>
+<link href="RINTER_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="RINTER_files/libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="RINTER_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="RINTER_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="RINTER_files/libs/bootstrap/bootstrap-813c323200a87c37e262811031999de4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <style>
 /* Desactivar selección de texto */
 body {
@@ -141,7 +141,7 @@ document.addEventListener('copy', function(e) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Biopython: una introducción al análisis de secuencias biológicas</h1>
+<h1 class="title">R para las ciencias biológicas - nivel intermedio</h1>
 </div>
 
 
@@ -158,8 +158,8 @@ document.addEventListener('copy', function(e) {
 </header>
 
 
-<p><strong>6 horas</strong></p>
 <div class="content-protection">
+<p><strong>Duración: 10 horas</strong></p>
 <section id="certificaciones-red-sep-conocer" class="level2">
 <h2 class="anchored" data-anchor-id="certificaciones-red-sep-conocer"><strong>Certificaciones RED SEP CONOCER</strong></h2>
 <ul>
@@ -170,78 +170,87 @@ document.addEventListener('copy', function(e) {
 <p><strong>Contacto:</strong> cencoatl.capacitacion@gmail.com<br>
 <strong>Teléfono:</strong> 55-71-90-93-96</p>
 <hr>
-</section>
-<section id="objetivo-general" class="level2">
-<h2 class="anchored" data-anchor-id="objetivo-general"><strong>OBJETIVO GENERAL</strong></h2>
-<p>Aprender a utilizar <strong>Python</strong> y <strong>Biopython</strong> para leer, manipular y analizar <strong>secuencias biológicas</strong> reales: calcular composición, <strong>transcribir</strong>, <strong>traducir</strong> y <strong>comparar</strong> genes entre especies mediante alineamientos.</p>
-<hr>
-<section id="clase-1-introducción-y-lectura-de-secuencias" class="level3">
-<h3 class="anchored" data-anchor-id="clase-1-introducción-y-lectura-de-secuencias"><strong>Clase 1: Introducción y lectura de secuencias</strong></h3>
+<section id="módulo-1-estimación-y-distribución-de-medias" class="level3">
+<h3 class="anchored" data-anchor-id="módulo-1-estimación-y-distribución-de-medias"><strong>Módulo 1: Estimación y distribución de medias</strong></h3>
 <ul>
-<li>Tipos de secuencias: <strong>ADN, ARN y proteína</strong><br>
+<li>Muestreo aleatorio y estimación puntual<br>
 </li>
-<li>Formatos <strong>FASTA</strong> y <strong>GenBank</strong><br>
+<li>Intervalos de confianza de la media<br>
 </li>
-<li>Instalación y primer uso de <strong>Biopython</strong> (sugerido: <strong>Google Colab</strong>)<br>
+<li>Distribución <em>t</em> de Student<br>
 </li>
-<li>Lectura, exploración de longitud y <strong>contenido GC%</strong></li>
+<li>Efecto del tamaño de muestra sobre la precisión y la potencia</li>
 </ul>
 <hr>
 </section>
-<section id="clase-2-procesamiento-y-traducción" class="level3">
-<h3 class="anchored" data-anchor-id="clase-2-procesamiento-y-traducción"><strong>Clase 2: Procesamiento y traducción</strong></h3>
+<section id="módulo-2-pruebas-de-hipótesis-sobre-una-o-dos-medias" class="level3">
+<h3 class="anchored" data-anchor-id="módulo-2-pruebas-de-hipótesis-sobre-una-o-dos-medias"><strong>Módulo 2: Pruebas de hipótesis sobre una o dos medias</strong></h3>
 <ul>
-<li><strong>Transcripción</strong> ADN → ARN<br>
+<li>Hipótesis nula y alternativa<br>
 </li>
-<li><strong>Traducción</strong> a proteína (tabla de codones)<br>
+<li>Prueba <em>t</em> de una muestra<br>
 </li>
-<li>Identificación de <strong>codones</strong> de inicio/paro<br>
+<li>Prueba <em>t</em> para muestras independientes (varianzas iguales o no)<br>
 </li>
-<li>Búsqueda de <strong>motivos</strong> con expresiones regulares<br>
+<li>Prueba <em>t</em> pareada (antes/después)<br>
 </li>
-<li>Guardar/cargar secuencias en <strong>FASTA</strong></li>
+<li>Interpretación biológica del valor <em>p</em> y tamaño del efecto</li>
 </ul>
 <hr>
 </section>
-<section id="clase-3-comparación-y-similitud" class="level3">
-<h3 class="anchored" data-anchor-id="clase-3-comparación-y-similitud"><strong>Clase 3: Comparación y similitud</strong></h3>
+<section id="módulo-3-análisis-de-varianza-anova" class="level3">
+<h3 class="anchored" data-anchor-id="módulo-3-análisis-de-varianza-anova"><strong>Módulo 3: Análisis de varianza (ANOVA)</strong></h3>
 <ul>
-<li>Fundamentos de <strong>alineamiento</strong> (global y local)<br>
+<li>Concepto de varianza y partición de la variabilidad<br>
 </li>
-<li>Alineamientos con <code>pairwise2</code> y <strong>porcentaje de identidad</strong><br>
+<li>ANOVA de un factor (<code>aov()</code>)<br>
 </li>
-<li>Identificación de <strong>SNPs</strong> y diferencias<br>
+<li>Verificación de supuestos (Shapiro–Wilk, Levene)<br>
 </li>
-<li>Gráficas simples de composición o coincidencias</li>
+<li>Comparaciones múltiples: Bonferroni, Tukey, Holm<br>
+</li>
+<li>ANOVA de dos vías (bloques y factores cruzados)<br>
+</li>
+<li>Representación gráfica de efectos principales</li>
 </ul>
 <hr>
 </section>
-</section>
-<section id="dirigido-a" class="level2">
-<h2 class="anchored" data-anchor-id="dirigido-a"><strong>Dirigido a</strong></h2>
+<section id="módulo-4-correlación-y-regresión-lineal" class="level3">
+<h3 class="anchored" data-anchor-id="módulo-4-correlación-y-regresión-lineal"><strong>Módulo 4: Correlación y regresión lineal</strong></h3>
 <ul>
-<li>Estudiantes y profesionales de <strong>Biología</strong>, <strong>Genética</strong>, <strong>Biotecnología</strong><br>
+<li>Relación entre dos variables biológicas<br>
 </li>
-<li>Ecología/Evolución, Ciencias de la Salud y áreas afines<br>
+<li>Correlación de Pearson (supuestos y significado)<br>
 </li>
-<li>Personas que deseen <strong>iniciar</strong> en bioinformática aplicada</li>
+<li>Regresión lineal simple (<code>lm()</code>)<br>
+</li>
+<li>Pendiente e intercepto: interpretación biológica<br>
+</li>
+<li>Coeficiente de determinación (<em>r</em>²)<br>
+</li>
+<li>Diagnóstico del modelo y visualización</li>
 </ul>
 <hr>
 </section>
-<section id="equipo-necesario" class="level2">
-<h2 class="anchored" data-anchor-id="equipo-necesario"><strong>Equipo necesario</strong></h2>
-<ol type="1">
-<li>Conexión estable a internet (recomendado <strong>Google Colab</strong>)<br>
+<section id="módulo-5-métodos-no-paramétricos" class="level3">
+<h3 class="anchored" data-anchor-id="módulo-5-métodos-no-paramétricos"><strong>Módulo 5: Métodos no paramétricos</strong></h3>
+<ul>
+<li>¿Cuándo usar métodos no paramétricos?<br>
 </li>
-<li>Navegador actualizado (Chrome/Firefox)<br>
+<li>Prueba de Mann–Whitney para dos grupos<br>
 </li>
-<li>Opcional: Python 3.10+ y Jupyter instalados localmente</li>
-</ol>
+<li>Prueba de Kruskal–Wallis para más de dos grupos<br>
+</li>
+<li>Correlación de Spearman<br>
+</li>
+<li>Comparación de resultados paramétricos vs.&nbsp;no paramétricos</li>
+</ul>
+</section>
 </section>
 </div>
 <hr>
 <div style="text-align: center; margin-top: 40px; padding: 20px; background-color: #f0f0f0; border-radius: 5px;">
-<p><strong>Documento Protegido</strong> - Prohibida su reproducción total o parcial</p>
+<p><strong>Documento Protegido</strong> — Prohibida su reproducción total o parcial</p>
 </div>
 
 </main>
