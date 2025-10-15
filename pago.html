@@ -1,79 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- Centrado total en móviles -->
-  <style>
-  /* ======= Centrado total en móviles (sin CSS externo) ======= */
-  @media (max-width: 768px) {
-
-    html, body { width: 100%; overflow-x: hidden; }
-
-    /* Contenedor principal */
-    .container {
-      padding: 16px;
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 720px;
-    }
-
-    /* Logo */
-    .logo-container { display: flex; justify-content: center; }
-    .logo { max-width: 260px; margin: 0 auto; height: auto; }
-
-    /* Tarjeta de título y todas las tarjetas/bloques */
-    .header,
-    .payment-card,
-    .instructions,
-    .contact-info {
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-    }
-
-    /* Grid de métodos: 1 columna y elementos centrados */
-    .payment-methods {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-      justify-items: center;
-    }
-
-    /* Limita ancho de cada tarjeta para que “quede al centro” */
-    .payment-card {
-      width: 100%;
-      max-width: 640px;
-    }
-
-    /* Filas con datos (Banco/CLABE/Cuenta) apiladas y centradas */
-    .info-row {
-      display: flex;             /* por si no lo tenías ya */
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      text-align: center;
-    }
-
-    /* Enlaces de pago centrados y con ancho cómodo */
-    .payment-link {
-      display: block;
-      max-width: 320px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* Botón “Regresar” centrado */
-    .btn-back {
-      display: inline-block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-  </style>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Métodos de Pago - Cencoatl</title>
 
+  <!-- CSS base -->
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -88,7 +21,6 @@
 
     /* LOGO */
     .logo-container { text-align: center; margin-bottom: 20px; }
-
     .logo {
       max-width: 600px;
       width: 100%;
@@ -104,7 +36,6 @@
       margin-bottom: 30px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
-
     .header h1 { color: #2c3e50; font-size: 2.5em; margin-bottom: 10px; }
     .header p { color: #7f8c8d; font-size: 1.1em; }
 
@@ -122,12 +53,10 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.3);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
     .payment-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 15px 40px rgba(0,0,0,0.4);
     }
-
     .payment-card h2 {
       color: #2c3e50;
       font-size: 1.8em;
@@ -137,7 +66,6 @@
       justify-content: center;
       gap: 10px;
     }
-
     .payment-icon { font-size: 2em; }
 
     .account-info {
@@ -155,11 +83,9 @@
       padding: 12px 0;
       border-bottom: 1px solid #e0e0e0;
     }
-
     .info-row:last-child { border-bottom: none; }
 
     .info-label { font-weight: 600; color: #555; }
-
     .info-value {
       color: #2c3e50;
       font-family: 'Courier New', monospace;
@@ -178,7 +104,6 @@
       transition: all 0.3s ease;
       font-weight: 600;
     }
-
     .btn-copy:hover {
       background: linear-gradient(135deg, #2980b9 0%, #21618c 100%);
       transform: scale(1.05);
@@ -191,7 +116,6 @@
       border-radius: 5px;
       margin-top: 20px;
     }
-
     .instructions h3 { color: #2c3e50; margin-bottom: 15px; font-size: 1.2em; }
     .instructions ol { margin-left: 20px; color: #34495e; }
     .instructions li { margin-bottom: 10px; line-height: 1.6; }
@@ -203,10 +127,8 @@
       text-align: center;
       box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
-
     .contact-info h3 { color: #2c3e50; margin-bottom: 15px; font-size: 1.5em; }
     .contact-info p { color: #7f8c8d; margin: 10px 0; }
-
     .contact-info a { color: #3498db; text-decoration: none; font-weight: 600; }
     .contact-info a:hover { color: #2980b9; text-decoration: underline; }
 
@@ -234,7 +156,6 @@
       transition: all 0.3s ease;
       font-size: 1em;
     }
-
     .payment-link:hover {
       background: linear-gradient(135deg, #229954 0%, #1e8449 100%);
       transform: translateY(-2px);
@@ -254,7 +175,6 @@
       transition: all 0.3s ease;
       font-size: 1.1em;
     }
-
     .whats-button:hover {
       background: linear-gradient(135deg, #128c7e 0%, #075e54 100%);
       transform: translateY(-2px);
@@ -266,18 +186,71 @@
       overflow-y: auto;
       padding-right: 10px;
     }
-
     .payment-links-container::-webkit-scrollbar { width: 8px; }
     .payment-links-container::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
     .payment-links-container::-webkit-scrollbar-thumb { background: #3498db; border-radius: 10px; }
     .payment-links-container::-webkit-scrollbar-thumb:hover { background: #2980b9; }
   </style>
+
+  <!-- CSS responsive (al FINAL del head para que tenga prioridad) -->
+  <style>
+    @media (max-width: 768px) {
+
+      html, body { width:100%; overflow-x:hidden; }
+
+      .container {
+        padding:16px !important;
+        margin-left:auto !important;
+        margin-right:auto !important;
+        max-width:720px !important;
+      }
+
+      .logo-container { display:flex !important; justify-content:center !important; }
+      .logo { max-width:260px !important; margin:0 auto !important; height:auto !important; }
+
+      .header,
+      .payment-card,
+      .instructions,
+      .contact-info {
+        margin-left:auto !important;
+        margin-right:auto !important;
+        text-align:center !important;
+      }
+
+      .payment-methods {
+        display:grid !important;
+        grid-template-columns:1fr !important;
+        gap:20px !important;
+        justify-items:center !important;
+      }
+
+      .payment-card { width:100% !important; max-width:640px !important; }
+
+      .info-row {
+        display:flex !important;
+        flex-direction:column !important;
+        align-items:center !important;
+        gap:8px !important;
+        text-align:center !important;
+      }
+
+      .payment-link {
+        display:block !important;
+        max-width:320px !important;
+        margin-left:auto !important;
+        margin-right:auto !important;
+      }
+
+      .btn-back { display:inline-block !important; margin-left:auto !important; margin-right:auto !important; }
+    }
+  </style>
+
 </head>
 <body>
   <div class="container">
     <!-- LOGO DE LA EMPRESA -->
     <div class="logo-container">
-      <img src="https://raw.githubusercontent.com/AlbertoCat/Temarios/main/imagenes/image.png" class="logo">
+      <img src="https://raw.githubusercontent.com/AlbertoCat/Temarios/main/imagenes/image.png" class="logo" alt="Cencoatl">
     </div>
 
     <div class="header">
@@ -399,21 +372,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
