@@ -36,7 +36,26 @@
             filter: drop-shadow(0 6px 18px rgba(0,0,0,0.25));
             
         }
+
+        /* Contenedor que recorta el aire del PNG */
+        .logo-frame{
+          height: 90px;              /* ajusta 70–110px según necesites */
+          display:50px;
+          align-items:center;
+          justify-content:center;
+          overflow:hidden;           /* recorta el lienzo sobrante */
+          margin: 8px auto 12px;     /* reduce el espacio debajo del logo */
+        }
         
+        /* Imagen del logo */
+        .logo{
+          height: 100%;              
+          width: auto;
+          display:block;
+          filter: drop-shadow(0 6px 18px rgba(0,0,0,.25));
+        }
+
+       
         
         .header {
             background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
@@ -460,6 +479,7 @@
 </body>
 
 </html>
+
 
 
 
