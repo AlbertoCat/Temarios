@@ -1,464 +1,405 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Métodos de Pago - Cencoatl</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #38526a 0%, #4c657e 50%, #38526a 100%);
-            min-height: 100vh;
-            padding: 40px 20px;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        /* LOGO */
-        .logo-container {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        
-        .logo {
-            max-width: 600px;
-            width: 100%;
-            height: auto;         
-            filter: drop-shadow(0 6px 18px rgba(0,0,0,0.25));
-            
-        }       
-        
-        
-        .header {
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-            padding: 40px;
-            border-radius: 15px;
-            text-align: center;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        
-        .header h1 {
-            color: #2c3e50;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        
-        .header p {
-            color: #7f8c8d;
-            font-size: 1.1em;
-        }
-        
-        .payment-methods {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .payment-card {
-            background: linear-gradient(135deg, #ffffff 0%, #ecf0f1 100%);
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .payment-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-        }
-        
-        .payment-card h2 {
-            color: #2c3e50;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        .payment-icon {
-            font-size: 2em;
-        }
-        
-        .account-info {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            border-left: 4px solid #3498db;
-        }
-        
-        .info-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        
-        .info-row:last-child {
-            border-bottom: none;
-        }
-        
-        .info-label {
-            font-weight: 600;
-            color: #555;
-        }
-        
-        .info-value {
-            color: #2c3e50;
-            font-family: 'Courier New', monospace;
-            font-size: 1.1em;
-            font-weight: 600;
-        }
-        
-        .btn-copy {
-            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.9em;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-        
-        .btn-copy:hover {
-            background: linear-gradient(135deg, #2980b9 0%, #21618c 100%);
-            transform: scale(1.05);
-        }
-        
-        .instructions {
-            background: linear-gradient(135deg, #e8f4f8 0%, #d6eaf8 100%);
-            border-left: 4px solid #3498db;
-            padding: 20px;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-        
-        .instructions h3 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
-        
-        .instructions ol {
-            margin-left: 20px;
-            color: #34495e;
-        }
-        
-        .instructions li {
-            margin-bottom: 10px;
-            line-height: 1.6;
-        }
-        
-        .contact-info {
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        
-        .contact-info h3 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-            font-size: 1.5em;
-        }
-        
-        .contact-info p {
-            color: #7f8c8d;
-            margin: 10px 0;
-        }
-        
-        .contact-info a {
-            color: #3498db;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        .contact-info a:hover {
-            color: #2980b9;
-            text-decoration: underline;
-        }
-        
-        .alert-success {
-            background: #27ae60;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            text-align: center;
-            display: none;
-            margin-top: 10px;
-            font-weight: 600;
-        }
-        
-        .payment-link {
-            display: block;
-            background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 15px;
-            transition: all 0.3s ease;
-            font-size: 1em;
-        }
-        
-        .payment-link:hover {
-            background: linear-gradient(135deg, #229954 0%, #1e8449 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
-        }
-        
-        .whats-button {
-            display: block;
-            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 15px;
-            transition: all 0.3s ease;
-            font-size: 1.1em;
-        }
-        
-        .whats-button:hover {
-            background: linear-gradient(135deg, #128c7e 0%, #075e54 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
-        }
-        
-        .payment-links-container {
-            max-height: 400px;
-            overflow-y: auto;
-            padding-right: 10px;
-        }
-        
-        .payment-links-container::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        .payment-links-container::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-        
-        .payment-links-container::-webkit-scrollbar-thumb {
-            background: #3498db;
-            border-radius: 10px;
-        }
-        
-        .payment-links-container::-webkit-scrollbar-thumb:hover {
-            background: #2980b9;
-        }
-    </style>
+  <!-- Centrado total en móviles -->
+  <style>
+  /* ======= Centrado total en móviles (sin CSS externo) ======= */
+  @media (max-width: 768px) {
+
+    html, body { width: 100%; overflow-x: hidden; }
+
+    /* Contenedor principal */
+    .container {
+      padding: 16px;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 720px;
+    }
+
+    /* Logo */
+    .logo-container { display: flex; justify-content: center; }
+    .logo { max-width: 260px; margin: 0 auto; height: auto; }
+
+    /* Tarjeta de título y todas las tarjetas/bloques */
+    .header,
+    .payment-card,
+    .instructions,
+    .contact-info {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    /* Grid de métodos: 1 columna y elementos centrados */
+    .payment-methods {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      justify-items: center;
+    }
+
+    /* Limita ancho de cada tarjeta para que “quede al centro” */
+    .payment-card {
+      width: 100%;
+      max-width: 640px;
+    }
+
+    /* Filas con datos (Banco/CLABE/Cuenta) apiladas y centradas */
+    .info-row {
+      display: flex;             /* por si no lo tenías ya */
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      text-align: center;
+    }
+
+    /* Enlaces de pago centrados y con ancho cómodo */
+    .payment-link {
+      display: block;
+      max-width: 320px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Botón “Regresar” centrado */
+    .btn-back {
+      display: inline-block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  </style>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Métodos de Pago - Cencoatl</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #38526a 0%, #4c657e 50%, #38526a 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .container { max-width: 1000px; margin: 0 auto; }
+
+    /* LOGO */
+    .logo-container { text-align: center; margin-bottom: 20px; }
+
+    .logo {
+      max-width: 600px;
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 6px 18px rgba(0,0,0,0.25));
+    }
+
+    .header {
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+      padding: 40px;
+      border-radius: 15px;
+      text-align: center;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .header h1 { color: #2c3e50; font-size: 2.5em; margin-bottom: 10px; }
+    .header p { color: #7f8c8d; font-size: 1.1em; }
+
+    .payment-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .payment-card {
+      background: linear-gradient(135deg, #ffffff 0%, #ecf0f1 100%);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .payment-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    }
+
+    .payment-card h2 {
+      color: #2c3e50;
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .payment-icon { font-size: 2em; }
+
+    .account-info {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+      border-left: 4px solid #3498db;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .info-row:last-child { border-bottom: none; }
+
+    .info-label { font-weight: 600; color: #555; }
+
+    .info-value {
+      color: #2c3e50;
+      font-family: 'Courier New', monospace;
+      font-size: 1.1em;
+      font-weight: 600;
+    }
+
+    .btn-copy {
+      background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9em;
+      transition: all 0.3s ease;
+      font-weight: 600;
+    }
+
+    .btn-copy:hover {
+      background: linear-gradient(135deg, #2980b9 0%, #21618c 100%);
+      transform: scale(1.05);
+    }
+
+    .instructions {
+      background: linear-gradient(135deg, #e8f4f8 0%, #d6eaf8 100%);
+      border-left: 4px solid #3498db;
+      padding: 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+
+    .instructions h3 { color: #2c3e50; margin-bottom: 15px; font-size: 1.2em; }
+    .instructions ol { margin-left: 20px; color: #34495e; }
+    .instructions li { margin-bottom: 10px; line-height: 1.6; }
+
+    .contact-info {
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .contact-info h3 { color: #2c3e50; margin-bottom: 15px; font-size: 1.5em; }
+    .contact-info p { color: #7f8c8d; margin: 10px 0; }
+
+    .contact-info a { color: #3498db; text-decoration: none; font-weight: 600; }
+    .contact-info a:hover { color: #2980b9; text-decoration: underline; }
+
+    .alert-success {
+      background: #27ae60;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      display: none;
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
+    .payment-link {
+      display: block;
+      background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 15px;
+      transition: all 0.3s ease;
+      font-size: 1em;
+    }
+
+    .payment-link:hover {
+      background: linear-gradient(135deg, #229954 0%, #1e8449 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+    }
+
+    .whats-button {
+      display: block;
+      background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 15px;
+      transition: all 0.3s ease;
+      font-size: 1.1em;
+    }
+
+    .whats-button:hover {
+      background: linear-gradient(135deg, #128c7e 0%, #075e54 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+    }
+
+    .payment-links-container {
+      max-height: 400px;
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+
+    .payment-links-container::-webkit-scrollbar { width: 8px; }
+    .payment-links-container::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+    .payment-links-container::-webkit-scrollbar-thumb { background: #3498db; border-radius: 10px; }
+    .payment-links-container::-webkit-scrollbar-thumb:hover { background: #2980b9; }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <!-- LOGO DE LA EMPRESA -->       
-        <div class="logo-container">
-            <img src="https://raw.githubusercontent.com/AlbertoCat/Temarios/main/imagenes/image.png" class="logo">            
-        </div>
-        
-        <div class="header">
-            <h1>💳 Métodos de Pago</h1>
-            <p>Seleccione su método de pago preferido</p>
-        </div>
-        
-        <div class="payment-methods">
-            <!-- Transferencia Bancaria -->
-            <div class="payment-card">
-                <h2>
-                    <span class="payment-icon">🏦</span>
-                    Transferencia Bancaria
-                </h2>
-                
-                <div class="account-info" style="text-align: center; padding: 40px 20px;">
-                    <div style="font-size: 3em; margin-bottom: 20px;">💬</div>
-                    <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.3em;">
-                        Solicita los datos bancarios
-                    </h3>
-                    <p style="color: #7f8c8d; line-height: 1.6; margin-bottom: 20px;">
-                        Por seguridad, los datos de transferencia se proporcionan únicamente por WhatsApp.
-                    </p>
-                    <p style="color: #7f8c8d; line-height: 1.6;">
-                        Contáctanos y te enviaremos la información de forma segura.
-                    </p>
-                </div>
-                
-                <div class="instructions">
-                    <h3>📋 Pasos para pago por transferencia:</h3>
-                    <ol>
-                        <li>Contacta por WhatsApp para solicitar datos bancarios</li>
-                        <li>Realiza tu transferencia bancaria</li>
-                        <li>Envía el comprobante de pago</li>
-                        <li>Recibe confirmación de tu inscripción</li>
-                    </ol>
-                </div>
-                
-                <a href="https://wa.me/5215571909396" class="whats-button" target="_blank">
-                    📱 Solicitar datos por WhatsApp
-                </a>
-            </div>
-            
-            <!-- Pago en Línea / Enlace de Pago -->
-            <div class="payment-card">
-                <h2>
-                    <span class="payment-icon">💳</span>
-                    Pago con Tarjeta
-                </h2>
-                
-                <div class="payment-links-container">
-                    <a href="https://mpago.la/2J4mnxq" class="payment-link" target="_blank">
-                        🔗 R Biológicas Básico
-                    </a>
-                    
-                    <a href="https://mpago.la/1FVju4i" class="payment-link" target="_blank">
-                        🔗 R Biológicas Intermedio
-                    </a>
-                    
-                    <a href="https://mpago.la/33dbPCw" class="payment-link" target="_blank">
-                        🔗 Introducción a R para Ciencias Sociales
-                    </a>
-                    
-                    <a href="https://mpago.la/2ZNk5jM" class="payment-link" target="_blank">
-                        🔗 SIG con QGIS Básico
-                    </a>
-                    
-                    <a href="https://mpago.la/2MGcTF7" class="payment-link" target="_blank">
-                        🔗 SIG con QGIS Intermedio
-                    </a>
-                    
-                    <a href="https://mpago.la/1bQWqct" class="payment-link" target="_blank">
-                        🔗 SIG con QGIS Avanzado
-                    </a>
-                    
-                    <a href="https://mpago.la/2nqG4Ch" class="payment-link" target="_blank">
-                        🔗 Procesamiento de Imágenes de Dron
-                    </a>
-                    
-                    <a href="https://mpago.la/2Bj7Ekh" class="payment-link" target="_blank">
-                        🔗 Fotogrametría Enfocada a Objetos
-                    </a>
-                    
-                    <a href="https://mpago.la/1HFXfB7" class="payment-link" target="_blank">
-                        🔗 Supervisión Ambiental en Obras
-                    </a>
-                    
-                    <a href="https://mpago.la/1KVRX9X" class="payment-link" target="_blank">
-                        🔗 MIAS
-                    </a>
-                    
-                    <a href="https://mpago.la/1uJU8KJ" class="payment-link" target="_blank">
-                        🔗 Informes Preventivos de Impacto Ambiental
-                    </a>
-                    
-                    <a href="https://mpago.la/179zssr" class="payment-link" target="_blank">
-                        🔗 Elaboración de PVA
-                    </a>
-                    
-                    <a href="https://mpago.la/2UTT6eD" class="payment-link" target="_blank">
-                        🔗 Cartografía Ambiental con R
-                    </a>
-                    
-                    <a href="https://mpago.la/13P2vV1" class="payment-link" target="_blank">
-                        🔗 Monitoreo Ambiental con Google Earth Engine
-                    </a>
-                    
-                    <a href="https://mpago.la/1qduciH" class="payment-link" target="_blank">
-                        🔗 Biopython
-                    </a>
-                    
-                    <a href="https://mpago.la/2zfHqt4" class="payment-link" target="_blank">
-                        🔗 Técnicas de Monitoreo y Análisis de Mamíferos
-                    </a>
-                    
-                    <a href="https://mpago.la/1PiBZNM" class="payment-link" target="_blank">
-                        🔗 Análisis de Datos de Herpetofauna
-                    </a>
-                    
-                    <a href="https://mpago.la/1rdBb1w" class="payment-link" target="_blank">
-                        🔗 Identificación de Serpientes Venenosas
-                    </a>
-                </div>
-               
-                <div class="instructions">
-                    <h3>📋 Instrucciones:</h3>
-                    <ol>
-                        <li>Haga clic en el curso de su interés</li>
-                        <li>Complete el pago con tarjeta de crédito/débito</li>
-                        <li>Comparta su comprobante al chat de WhatsApp</li>                        
-                    </ol>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Información de contacto -->
-        <div class="contact-info">
-            <h3>📞 ¿Necesitas Factura?</h3>
-            <p>Envía tus datos de facturación por:</p>
-            <p>
-                <strong>WhatsApp:</strong> 
-                <a href="https://wa.me/5215571909396" target="_blank">55-71-90-93-96</a>
-            </p>
-            <p>
-                <strong>Email:</strong> 
-                <a href="mailto:cencoatl.capacitacion@gmail.com">cencoatl.capacitacion@gmail.com</a>
-            </p>
-            <p style="margin-top: 20px; color: #95a5a6; font-size: 0.9em;">
-                Horario de atención: Lunes a Viernes, 9:00 - 18:00 hrs
-            </p>
-        </div>
+  <div class="container">
+    <!-- LOGO DE LA EMPRESA -->
+    <div class="logo-container">
+      <img src="https://raw.githubusercontent.com/AlbertoCat/Temarios/main/imagenes/image.png" class="logo">
     </div>
-    
-    <script>
-        function copiarTexto(elementId) {
-            const texto = document.getElementById(elementId).textContent;
-            
-            // Copiar al portapapeles
-            navigator.clipboard.writeText(texto).then(() => {
-                // Mostrar mensaje de éxito
-                let alertElement = document.getElementById('alert-' + elementId);
-                
-                if (!alertElement) {
-                    alertElement = document.createElement('div');
-                    alertElement.className = 'alert-success';
-                    alertElement.id = 'alert-' + elementId;
-                    document.getElementById(elementId).closest('.account-info').appendChild(alertElement);
-                }
-                
-                alertElement.textContent = '✓ CLABE copiada al portapapeles';
-                alertElement.style.display = 'block';
-                
-                setTimeout(() => {
-                    alertElement.style.display = 'none';
-                }, 2000);
-            }).catch(err => {
-                alert('Error al copiar. Por favor, copie manualmente.');
-            });
-        }
-    </script>
-</body>
 
+    <div class="header">
+      <h1>💳 Métodos de Pago</h1>
+      <p>Seleccione su método de pago preferido</p>
+    </div>
+
+    <div class="payment-methods">
+      <!-- Transferencia Bancaria -->
+      <div class="payment-card">
+        <h2>
+          <span class="payment-icon">🏦</span>
+          Transferencia Bancaria
+        </h2>
+
+        <div class="account-info" style="text-align: center; padding: 40px 20px;">
+          <div style="font-size: 3em; margin-bottom: 20px;">💬</div>
+          <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.3em;">
+            Solicita los datos bancarios
+          </h3>
+          <p style="color: #7f8c8d; line-height: 1.6; margin-bottom: 20px;">
+            Por seguridad, los datos de transferencia se proporcionan únicamente por WhatsApp.
+          </p>
+          <p style="color: #7f8c8d; line-height: 1.6;">
+            Contáctanos y te enviaremos la información de forma segura.
+          </p>
+        </div>
+
+        <div class="instructions">
+          <h3>📋 Pasos para pago por transferencia:</h3>
+          <ol>
+            <li>Contacta por WhatsApp para solicitar datos bancarios</li>
+            <li>Realiza tu transferencia bancaria</li>
+            <li>Envía el comprobante de pago</li>
+            <li>Recibe confirmación de tu inscripción</li>
+          </ol>
+        </div>
+
+        <a href="https://wa.me/5215571909396" class="whats-button" target="_blank">
+          📱 Solicitar datos por WhatsApp
+        </a>
+      </div>
+
+      <!-- Pago en Línea / Enlace de Pago -->
+      <div class="payment-card">
+        <h2>
+          <span class="payment-icon">💳</span>
+          Pago con Tarjeta
+        </h2>
+
+        <div class="payment-links-container">
+          <a href="https://mpago.la/2J4mnxq" class="payment-link" target="_blank">🔗 R Biológicas Básico</a>
+          <a href="https://mpago.la/1FVju4i" class="payment-link" target="_blank">🔗 R Biológicas Intermedio</a>
+          <a href="https://mpago.la/33dbPCw" class="payment-link" target="_blank">🔗 Introducción a R para Ciencias Sociales</a>
+          <a href="https://mpago.la/2ZNk5jM" class="payment-link" target="_blank">🔗 SIG con QGIS Básico</a>
+          <a href="https://mpago.la/2MGcTF7" class="payment-link" target="_blank">🔗 SIG con QGIS Intermedio</a>
+          <a href="https://mpago.la/1bQWqct" class="payment-link" target="_blank">🔗 SIG con QGIS Avanzado</a>
+          <a href="https://mpago.la/2nqG4Ch" class="payment-link" target="_blank">🔗 Procesamiento de Imágenes de Dron</a>
+          <a href="https://mpago.la/2Bj7Ekh" class="payment-link" target="_blank">🔗 Fotogrametría Enfocada a Objetos</a>
+          <a href="https://mpago.la/1HFXfB7" class="payment-link" target="_blank">🔗 Supervisión Ambiental en Obras</a>
+          <a href="https://mpago.la/1KVRX9X" class="payment-link" target="_blank">🔗 MIAS</a>
+          <a href="https://mpago.la/1uJU8KJ" class="payment-link" target="_blank">🔗 Informes Preventivos de Impacto Ambiental</a>
+          <a href="https://mpago.la/179zssr" class="payment-link" target="_blank">🔗 Elaboración de PVA</a>
+          <a href="https://mpago.la/2UTT6eD" class="payment-link" target="_blank">🔗 Cartografía Ambiental con R</a>
+          <a href="https://mpago.la/13P2vV1" class="payment-link" target="_blank">🔗 Monitoreo Ambiental con Google Earth Engine</a>
+          <a href="https://mpago.la/1qduciH" class="payment-link" target="_blank">🔗 Biopython</a>
+          <a href="https://mpago.la/2zfHqt4" class="payment-link" target="_blank">🔗 Técnicas de Monitoreo y Análisis de Mamíferos</a>
+          <a href="https://mpago.la/1PiBZNM" class="payment-link" target="_blank">🔗 Análisis de Datos de Herpetofauna</a>
+          <a href="https://mpago.la/1rdBb1w" class="payment-link" target="_blank">🔗 Identificación de Serpientes Venenosas</a>
+        </div>
+
+        <div class="instructions">
+          <h3>📋 Instrucciones:</h3>
+          <ol>
+            <li>Haga clic en el curso de su interés</li>
+            <li>Complete el pago con tarjeta de crédito/débito</li>
+            <li>Comparta su comprobante al chat de WhatsApp</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- Información de contacto -->
+    <div class="contact-info">
+      <h3>📞 ¿Necesitas Factura?</h3>
+      <p>Envía tus datos de facturación por:</p>
+      <p>
+        <strong>WhatsApp:</strong>
+        <a href="https://wa.me/5215571909396" target="_blank">55-71-90-93-96</a>
+      </p>
+      <p>
+        <strong>Email:</strong>
+        <a href="mailto:cencoatl.capacitacion@gmail.com">cencoatl.capacitacion@gmail.com</a>
+      </p>
+      <p style="margin-top: 20px; color: #95a5a6; font-size: 0.9em;">
+        Horario de atención: Lunes a Viernes, 9:00 - 18:00 hrs
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function copiarTexto(elementId) {
+      const texto = document.getElementById(elementId).textContent;
+      navigator.clipboard.writeText(texto).then(() => {
+        let alertElement = document.getElementById('alert-' + elementId);
+        if (!alertElement) {
+          alertElement = document.createElement('div');
+          alertElement.className = 'alert-success';
+          alertElement.id = 'alert-' + elementId;
+          document.getElementById(elementId).closest('.account-info').appendChild(alertElement);
+        }
+        alertElement.textContent = '✓ CLABE copiada al portapapeles';
+        alertElement.style.display = 'block';
+        setTimeout(() => { alertElement.style.display = 'none'; }, 2000);
+      }).catch(() => {
+        alert('Error al copiar. Por favor, copie manualmente.');
+      });
+    }
+  </script>
+</body>
 </html>
+
 
 
 
