@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cencoatl Capacitación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --navy:     #003049;
+      --blue:     #0077b6;
+      --blue-mid: #005f87;
+      --teal:     #00b4d8;
+      --sand:     #f4efe8;
+      --white:    #ffffff;
+      --gray-lt:  #f0f4f8;
+      --gray-mid: #9dafc0;
+      --ink:      #1a2636;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans:  "DM Sans", system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--sand);
+      color: var(--ink);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ─── HEADER ─────────────────────────────────────────────── */
+    header {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    /* Topographic SVG lines background */
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 80% 60% at 70% 110%, rgba(0,180,216,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 80% at 10% -10%, rgba(0,119,182,0.18) 0%, transparent 55%);
+      pointer-events: none;
+    }
+
+    /* Decorative contour lines */
+    .header-lines {
+      position: absolute;
+      inset: 0;
+      opacity: 0.07;
+      pointer-events: none;
+    }
+
+    .header-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 2rem 3.5rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 2rem;
+    }
+
+    .header-eyebrow {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.75rem;
+    }
+
+    header h1 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 0.9rem;
+    }
+
+    header h1 span {
+      color: var(--teal);
+    }
+
+    header p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.65);
+      font-weight: 300;
+      max-width: 480px;
+      line-height: 1.6;
+    }
+
+    .header-badge {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(0,180,216,0.3);
+      border-radius: 100px;
+      padding: 0.55rem 1.1rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--teal);
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      align-self: flex-start;
+      margin-top: 0.4rem;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────────────── */
+    nav {
+      background: rgba(0,0,0,0.25);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    nav ul {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      list-style: none;
+      display: flex;
+      gap: 0;
+    }
+
+    nav a {
+      display: block;
+      padding: 0.9rem 1.4rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: 0; left: 1.4rem; right: 1.4rem;
+      height: 2px;
+      background: var(--teal);
+      transform: scaleX(0);
+      transition: transform 0.25s ease;
+    }
+
+    nav a:hover,
+    nav a.active { color: #fff; }
+    nav a:hover::after,
+    nav a.active::after { transform: scaleX(1); }
+
+    /* ─── MAIN LAYOUT ─────────────────────────────────────────── */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, rgba(0,48,73,0.15), transparent);
+    }
+
+    .section-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      padding: 0.3rem 0.8rem;
+      border: 1px solid rgba(0,119,182,0.25);
+      border-radius: 100px;
+    }
+
+    /* ─── BLOG SECTION ────────────────────────────────────────── */
+    .blog-section { margin-bottom: 5rem; }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .blog-card {
+      background: var(--white);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,48,73,0.07);
+      transition: transform 0.28s cubic-bezier(0.34,1.3,0.64,1), box-shadow 0.28s ease;
+      display: flex;
+      flex-direction: column;
+      animation: fadeUp 0.5s ease both;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0,48,73,0.14);
+    }
+
+    .blog-card-accent {
+      height: 5px;
+      background: linear-gradient(to right, var(--navy), var(--teal));
+    }
+
+    .blog-card-body {
+      padding: 1.6rem 1.7rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .blog-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .blog-cat {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      background: rgba(0,119,182,0.08);
+      padding: 0.25rem 0.65rem;
+      border-radius: 100px;
+    }
+
+    .blog-date {
+      font-size: 0.75rem;
+      color: var(--gray-mid);
+      font-weight: 400;
+    }
+
+    .blog-dot { color: var(--gray-mid); font-size: 0.6rem; }
+
+    .blog-card h3 {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.35;
+      margin-bottom: 0.7rem;
+    }
+
+    .blog-card p {
+      font-size: 0.88rem;
+      color: #5a6e7f;
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 1.4rem;
+    }
+
+    .blog-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(0,48,73,0.06);
+    }
+
+    .read-time {
+      font-size: 0.75rem;
+      color: var(--gray-mid);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .btn-read {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--blue);
+      text-decoration: none;
+      transition: gap 0.2s, color 0.2s;
+    }
+
+    .btn-read svg { width: 14px; height: 14px; }
+    .btn-read:hover { color: var(--navy); gap: 0.7rem; }
+
+    /* ─── TEMARIOS SECTION ────────────────────────────────────── */
+    .temarios-section { margin-bottom: 5rem; }
+
+    .temarios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .temario-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 1.6rem 1.7rem;
+      box-shadow: 0 2px 10px rgba(0,48,73,0.06);
+      transition: transform 0.25s cubic-bezier(0.34,1.3,0.64,1), box-shadow 0.25s ease;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      animation: fadeUp 0.5s ease both;
+    }
+
+    .temario-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 22px rgba(0,48,73,0.12);
+    }
+
+    .temario-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--navy), var(--blue-mid));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .temario-icon svg { width: 20px; height: 20px; fill: none; stroke: #fff; stroke-width: 1.8; }
+
+    .temario-body { flex: 1; }
+
+    .temario-card h3 {
+      font-family: var(--serif);
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.35;
+      margin-bottom: 0.8rem;
+    }
+
+    .temario-card a {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--blue);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: gap 0.2s, color 0.2s;
+    }
+
+    .temario-card a svg { width: 12px; height: 12px; }
+    .temario-card a:hover { color: var(--navy); gap: 0.6rem; }
+
+    /* ─── FOOTER ──────────────────────────────────────────────── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.45);
+      font-size: 0.82rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    footer::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 100% at 50% 120%, rgba(0,119,182,0.12), transparent);
+      pointer-events: none;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.2rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-brand {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* ─── ANIMATIONS ─────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .blog-card:nth-child(1) { animation-delay: 0.05s; }
+    .blog-card:nth-child(2) { animation-delay: 0.12s; }
+    .blog-card:nth-child(3) { animation-delay: 0.19s; }
+    .temario-card:nth-child(1) { animation-delay: 0.08s; }
+    .temario-card:nth-child(2) { animation-delay: 0.15s; }
+    .temario-card:nth-child(3) { animation-delay: 0.22s; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .header-inner { grid-template-columns: 1fr; }
+      .header-badge { align-self: flex-start; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <svg class="header-lines" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 260" preserveAspectRatio="xMidYMid slice">
+      <path d="M-50 200 Q200 170 400 190 Q600 210 800 175 Q950 150 1150 180" fill="none" stroke="white" stroke-width="1"/>
+      <path d="M-50 230 Q250 195 450 215 Q650 235 850 200 Q1000 180 1150 210" fill="none" stroke="white" stroke-width="1"/>
+      <path d="M-50 170 Q150 145 350 165 Q550 185 750 155 Q900 130 1150 155" fill="none" stroke="white" stroke-width="1"/>
+      <path d="M-50 140 Q100 120 300 138 Q500 158 700 128 Q850 105 1150 128" fill="none" stroke="white" stroke-width="0.6"/>
+    </svg>
+    <div class="header-inner">
+      <div>
+        <p class="header-eyebrow">Plataforma de recursos educativos</p>
+        <h1>Cencoatl <span>Capacitación</span></h1>
+        <p>Cursos especializados en ciencias ambientales, sistemas de información geográfica, ciencia de datos  y análisis de datos ecológicos.</p>
+      </div>
+      <div class="header-badge">🌿 Educación ambiental aplicada</div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#recursos" class="active">Recursos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ── BLOG ───────────────────────────────────────────────── -->
+    <section class="blog-section" id="recursos">
+      <div class="section-header">
+        <h2 class="section-title">Recursos</h2>
+        <div class="section-line"></div>
+        <span class="section-tag">Artículos</span>
+      </div>
+
+      <div class="blog-grid">
+
+        <!-- Artículo 1: Guía de entrenamiento IA -->
+        <article class="blog-card">
+          <div class="blog-card-accent"></div>
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-cat">Inteligencia Artificial</span>
+              <span class="blog-dot">●</span>
+              <span class="blog-date">Oct 2025</span>
+            </div>
+            <h3>Guía de código para conteo de vegetación autómatico con Deep Learning</h3>
+            <p>Entrenamiento de modelos YOLO-Segment para conteo de vegetación con IA. Desde la preparación de datos hasta la inferencia en ortomosaicos georreferenciados.</p>
+            <div class="blog-card-footer">
+              <span class="read-time">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                ~40 min lectura
+              </span>
+              <a class="btn-read" href="blog/Codigo_entrenamiento_Conteo_IA_v2.html" target="_blank">
+                Leer artículo
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Placeholder 2 -->
+        <article class="blog-card" style="opacity:0.55; pointer-events:none;">
+          <div class="blog-card-accent" style="background: linear-gradient(to right, #9dafc0, #c8d8e4);"></div>
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-cat" style="color:#9dafc0; background:rgba(157,175,192,0.1);">Teledetección</span>
+              <span class="blog-dot">●</span>
+              <span class="blog-date">Próximamente</span>
+            </div>
+            <h3>Índices de vegetación con imágenes multiespectrales de drones</h3>
+            <p>Cálculo e interpretación de NDVI, NDRE y otros índices espectrales para el monitoreo de la salud forestal en la Sierra de Chihuahua.</p>
+            <div class="blog-card-footer">
+              <span class="read-time">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                En preparación
+              </span>
+              <span style="font-size:0.8rem; color:#9dafc0; font-weight:500;">Próximamente →</span>
+            </div>
+          </div>
+        </article>
+
+        </div>
+    </section>
+
+    
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-brand">Cencoatl Capacitación</span>
+      <span>© 2025 · Todos los derechos reservados</span>
+    </div>
+  </footer>
+
+</body>
+</html>
