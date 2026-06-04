@@ -817,7 +817,7 @@ names: ['Arbusto', 'Palmera', 'Basura']</code></pre>
 <p>La gráfica BoxF1_curve.png es una curva que muestra la relación entre la métrica F1-Score y los diferentes umbrales de confianza para las detecciones de cajas del modelo YOLO. Esta gráfica se genera automáticamente durante el proceso de validación del entrenamiento y representa el comportamiento del modelo across todos los rangos posibles de confianza, desde valores muy bajos hasta muy altos.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="articulos/images/clipboard-2397010626.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="479"></p>
+<p><img src="imagenes/clipboard-2397010626.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="479"></p>
 </figure>
 </div>
 <p>Esta curva sirve principalmente para identificar el punto óptimo de operación del modelo, específicamente para determinar qué umbral de confianza maximiza el balance entre precision y recall. Es una herramienta fundamental para ajustar hiperparámetros antes de desplegar el modelo a producción, ya que permite seleccionar el threshold que entregará el mejor desempeño general en la detección de objetos.</p>
@@ -833,7 +833,7 @@ names: ['Arbusto', 'Palmera', 'Basura']</code></pre>
 <p>La gráfica BoxP_curve.png es la curva de Precisión-Confianza que muestra cómo varía la precisión de las detecciones del modelo según cambia el umbral de confianza. Esta curva se genera durante la validación y representa el porcentaje de detecciones correctas frente a todas las detecciones realizadas por el modelo para cada nivel de confianza posible.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="articulos/images/clipboard-1696091864.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="479"></p>
+<p><img src="imagenes/clipboard-1696091864.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="479"></p>
 </figure>
 </div>
 <p>curva sirve para entender la relación entre la confianza del modelo y la precisión de sus predicciones. Es particularmente útil para identificar a qué nivel de confianza el modelo comienza a ser confiable y para detectar si existe sobreconfianza en predicciones incorrectas. Ayuda a establecer umbrales de confianza que aseguren alta precisión en las detecciones, lo que es crucial para aplicaciones donde los falsos positivos son costosos.</p>
