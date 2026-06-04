@@ -675,12 +675,12 @@ names: ['Arbusto', 'Palmera', 'Basura']</code></pre>
 <h3 data-number="6.1.1" class="anchored" data-anchor-id="curva-f1"><span class="header-section-number">6.1.1</span> Curva F1</h3>
 <p>La curva F1 ilustra el balance entre la precisión y la exhaustividad al variar el umbral de confianza. En este caso, la curva marca un máximo global (all classes) de 0.72 a un umbral de confianza de 0.495.</p>
 <p>Esto significa que configurar el modelo para ignorar detecciones por debajo del ~50% de seguridad nos da el punto óptimo de rendimiento. Es notable cómo la curva de “Basura” se mantiene muy por encima del resto, indicando que su detección es mucho más robusta, mientras que “Arbusto” y “Palmera” comparten un rendimiento similar pero inferior.</p>
-<p><img src="articulos/images/clipboard-3095564456.png" class="img-fluid"></p>
+<p><img src="articulos/images/clipboard-2397010626.png" class="img-fluid"></p>
 </section>
 <section id="curva-de-precisión-confianza" class="level3" data-number="6.1.2">
 <h3 data-number="6.1.2" class="anchored" data-anchor-id="curva-de-precisión-confianza"><span class="header-section-number">6.1.2</span> Curva de Precisión-Confianza</h3>
 <p>Esta gráfica muestra cómo escala la certeza del modelo a medida que exigimos mayor seguridad. El punto máximo indica una precisión perfecta (1.00) con un umbral altísimo (0.996). Aunque parece ideal, un 99.6% haría que el modelo ignorara la gran mayoría de los objetos en el campo. Esta gráfica es útil como prueba de integridad: si al subir la confianza la precisión no se acerca a 1.0, significaría que el modelo genera falsos positivos incluso cuando está “seguro”.</p>
-<p><img src="articulos/images/clipboard-604374418.png" class="img-fluid"></p>
+<p><img src="articulos/images/clipboard-1696091864.png" class="img-fluid"></p>
 </section>
 <section id="curva-precision-recall" class="level3" data-number="6.1.3">
 <h3 data-number="6.1.3" class="anchored" data-anchor-id="curva-precision-recall"><span class="header-section-number">6.1.3</span> Curva Precision-Recall</h3>
@@ -692,7 +692,7 @@ names: ['Arbusto', 'Palmera', 'Basura']</code></pre>
 <p>Mientras que la precisión indica la calidad de lo que se detecta, el recall mide la sensibilidad: de todos los árboles que había, ¿cuántos encontró el modelo? La gráfica muestra que con un umbral cercano a cero, el modelo alcanza un recall global del 96%. Conforme exigimos mayor confianza (moviéndonos a la derecha), la curva cae inevitablemente porque el modelo descarta detecciones válidas. En inventarios forestales, donde perder un individuo cuesta más que contar uno de más, lo ideal es mantener el umbral bajo (entre 0.15 y 0.30) y hacer filtrados espaciales posteriores.</p>
 <p><img src="articulos/images/clipboard-3366762462.png" class="img-fluid"></p>
 <p>La matriz cruza las predicciones del modelo contra las etiquetas reales. Vemos que la clase “Basura” es prácticamente perfecta. “Arbusto” y “Palmera” tienen aciertos considerables, pero el valor elevado en la columna de fondo (“Background”) revela un comportamiento típico en ortomosaicos: el modelo identifica texturas de vegetación donde no hay plantas anotadas (falsos positivos), probablemente debido a pasto seco o maleza baja que no fue etiquetada.</p>
-<p><img src="articulos/images/clipboard-1786562597.png" class="img-fluid"></p>
+<p><img src="articulos/images/clipboard-3366762462.png" class="img-fluid"></p>
 </section>
 <section id="matriz-de-confusión-normalizada" class="level3" data-number="6.1.5">
 <h3 data-number="6.1.5" class="anchored" data-anchor-id="matriz-de-confusión-normalizada"><span class="header-section-number">6.1.5</span> Matriz de confusión normalizada</h3>
